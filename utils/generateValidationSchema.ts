@@ -11,12 +11,10 @@ export const validationErrorMessages = {
 const fieldMappingValidationObject = CONTACT_MAPPING_FIELDS.reduce(
     (acc, field) => {
         const { name, required } = field;
-        let validation = yup
-            .string()
-            .matches(
-                /^[a-zA-Z0-9_-]{5,30}$/g,
-                validationErrorMessages.patternMatch
-            );
+        let validation = yup.string().matches(/^[a-zA-Z0-9_-]{5,30}$/g, {
+            excludeEmptyString: true,
+            message: validationErrorMessages.patternMatch,
+        });
         if (required) {
             validation = validation.required(validationErrorMessages.required);
         }
@@ -38,20 +36,20 @@ export const generateValidationSchema = (fields: IntegrationField[]) => {
 
             switch (field.validations) {
                 case FieldValidationsTypes.CLIENT_ID:
-                    validation = validation.matches(
-                        /^[a-zA-Z0-9_-]{5,18}$/g,
-                        validationErrorMessages.patternMatch
-                    );
+                    validation = validation.matches(/^[a-zA-Z0-9_-]{5,18}$/g, {
+                        excludeEmptyString: true,
+                        message: validationErrorMessages.patternMatch,
+                    });
                 case FieldValidationsTypes.CLIENT_SECRET:
-                    validation = validation.matches(
-                        /^[a-zA-Z0-9_-]{5,18}$/g,
-                        validationErrorMessages.patternMatch
-                    );
+                    validation = validation.matches(/^[a-zA-Z0-9_-]{5,18}$/g, {
+                        excludeEmptyString: true,
+                        message: validationErrorMessages.patternMatch,
+                    });
                 default:
-                    validation = validation.matches(
-                        /^[a-zA-Z0-9_-]{5,30}$/g,
-                        validationErrorMessages.patternMatch
-                    );
+                    validation = validation.matches(/^[a-zA-Z0-9_-]{5,30}$/g, {
+                        excludeEmptyString: true,
+                        message: validationErrorMessages.patternMatch,
+                    });
             }
 
             if (required) {
