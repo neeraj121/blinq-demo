@@ -1,0 +1,25 @@
+.main {
+    min-height: 100vh;
+    padding: 2rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-grey);
+}
+.container {
+    max-width: 800px !important;
+}
+.logo {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+}
+.logo > span {
+    display: block !important;
+}
+.logo img {
+    object-fit: contain;
+}

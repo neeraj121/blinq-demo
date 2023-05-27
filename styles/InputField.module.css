@@ -1,0 +1,46 @@
+.group {
+    position: relative;
+}
+.label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.8rem;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--color-neutral-light);
+    pointer-events: none;
+    transform-origin: top left;
+    transition: all 0.1s ease-in-out;
+}
+.inFocusLabel {
+    left: 0.5rem;
+    padding: 0 0.4rem;
+    background-color: var(--color-white);
+    transform: translateY(-0.35rem) scale(0.7);
+}
+.input {
+    display: block;
+    width: 100%;
+    background-color: var(--white);
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-input-border);
+    transition: border-color 0.1s ease-in-out;
+}
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+.fielderror {
+    color: var(--color-danger);
+    font-size: 0.75rem;
+    margin: 0.2rem 0 0;
+}
+.fieldinfo {
+    font-size: 0.75rem;
+    margin: 0.2rem 0 0;
+}
